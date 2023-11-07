@@ -1,0 +1,59 @@
+﻿@model IEnumerable<WebApplication1.Models.KKStudents>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.RollNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StudentName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Position)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FavouriteSubject)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FavouriteTeacher)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.RollNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StudentName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Position)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FavouriteSubject)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FavouriteTeacher)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.RollNumber}) |
+                @Html.ActionLink("Details", "Details", new {  id=item.RollNumber }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.RollNumber })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
